@@ -35,4 +35,4 @@
         }
     };
 </script>
-@endsection
+@append

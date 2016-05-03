@@ -38,4 +38,4 @@
 	Vue.component('button-group', vueComponents.buttonGroup);
 
 </script>
-@endsection
+@append

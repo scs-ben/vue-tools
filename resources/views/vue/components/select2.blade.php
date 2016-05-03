@@ -45,4 +45,4 @@
 	Vue.component('select2', vueComponents.select2);
 
 </script>
-@endsection
+@append

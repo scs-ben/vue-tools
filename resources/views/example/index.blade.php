@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="example in examples">
+                        <tr v-for="example in examples.data">
                             <td class="text-center">
                                 @{{ example.created_at | date }}
                             </td>
@@ -68,7 +68,8 @@
                     data: {!! $examples->toJson() !!}
                 },
                 blanks: {
-                    example: {!! $blankExample->toJson() !!}
+                    example: {!! $blankExample->toJson() !!},
+                    project: {!! $blankProject->toJson() !!}
                 }
             };
         },

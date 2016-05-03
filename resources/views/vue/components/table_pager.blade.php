@@ -94,4 +94,4 @@
 
     Vue.component('table-pager', vueComponents.tablePager);
 </script>
-@endsection
+@append

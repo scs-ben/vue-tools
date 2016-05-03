@@ -160,4 +160,4 @@
 	Vue.component('datepicker', vueComponents.datepicker);
 
 </script>
-@endsection
+@append

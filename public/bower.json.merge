@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "version": "0.1.0",
+  "authors": [
+    "SCS Ben <breese@scsgrandrapids.com>"
+    "SCS David <dvranish.work@sgmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "moment": "~2.11.2",
+    "select2": "~4.0.1",
+    "icheck": "~1.0.2",
+    "vue": "https://github.com/vuejs/vue.git#~1.0.21"
+  }
+}

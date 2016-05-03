@@ -35,4 +35,4 @@
 
 	Vue.component('table-searcher', vueComponents.tableSearcher);
 </script>
-@endsection
+@append

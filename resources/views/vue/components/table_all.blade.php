@@ -94,5 +94,5 @@
 
     Vue.component('vue-table', vueForms.vueTable);
 </script>
-@endsection
+@append
 

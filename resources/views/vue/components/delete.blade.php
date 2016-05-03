@@ -45,4 +45,4 @@
     Vue.component('delete', vueComponents.delete);
 
 </script>
-@endsection
+@append

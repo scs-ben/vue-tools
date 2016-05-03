@@ -230,4 +230,4 @@
 
 	Vue.component('standard-form', vueForms.standardForm);
 </script>
-@endsection
+@append

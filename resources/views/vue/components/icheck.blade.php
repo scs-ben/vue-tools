@@ -58,4 +58,4 @@
 	Vue.component('icheck', vueComponents.icheck);
 
 </script>
-@endsection
+@append

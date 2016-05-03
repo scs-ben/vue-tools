@@ -42,4 +42,4 @@
 	Vue.component('table-page-sizer', vueComponents.tablePageSizer);
 
 </script>
-@endsection
+@append

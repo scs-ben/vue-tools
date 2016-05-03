@@ -158,4 +158,4 @@
 Vue.component('modal', vueComponents.modal);
 
 </script>
-@endsection
+@append

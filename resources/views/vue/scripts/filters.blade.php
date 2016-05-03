@@ -90,11 +90,29 @@
 	    	if(typeof(format) != 'undefined') {
 	    		return filterDate.format(format);	
 	    	} else {
-	    		return filterDate.format("{{ config('vue.defaultDateFormat') }}");
+	    		return filterDate.format("{{ config('vue.defaultDateFormat', 'MM/DD/YY') }}");
 	    	}
 	    } else {
 	        return '';
 	    }
+	});
+
+	Vue.filter('number', function(number, decimals, decimalPoint, thousandsSeperator) {
+		if(typeof(number) == 'undefined' || isNaN(number)) {
+			return '';
+		} else {
+			if(typeof(decimals) == 'undefined') {
+				decimals = {{ config('vue.defaultDecimals', 2) }};
+			}
+			if(typeof(decimalPoint) == 'undefined') {
+				decimalPoint = {{ config('vue.defaultDecimalPoint', '.') }};
+			}
+			if(typeof(thousandsSeperator) == 'undefined') {
+				thousandsSeperator = {{ config('vue.defaultThousandSeparator', ',') }};
+			}
+
+			return number_format(number, decimals, decimalPoint, thousandsSeperator);
+		}
 	});
 
 	Vue.filter('length', function(array) {
@@ -137,4 +155,4 @@
 	    return tmpArray;
 	});
 </script>
-@endsection
+@append
