@@ -85,9 +85,16 @@
 @include('vue.scripts.filters')
 @include('vue.scripts.directives')
 
+
 @foreach (scandir(base_path('resources/views/vue/components')) as $file)
     @if ($file !== '.' && $file !== '..')
-        @include('vue.components.' . str_replace('.blade.php', '', $file))
+        @if (!is_dir($file))
+            @include('vue.components.' . str_replace('.blade.php', '', $file))
+        @else
+            @foreach (scandir(base_path('resources/views/vue/components/' . $file)) as $subFile)
+                @include('vue.components.' . $file . '.' . str_replace('.blade.php', '', $file))
+            @endforeach
+        @endif
     @endif
 @endforeach
 
