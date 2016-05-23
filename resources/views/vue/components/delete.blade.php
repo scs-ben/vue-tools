@@ -9,8 +9,8 @@
     	}'
     	@click="tryDelete"
 	>
-		<span v-show="confirmed"><slot name="confirm-text">Confirm</slot></span>
-		<slot>Remove</slot>
+		<span v-if="confirmed"><slot name="confirm-text">Really?</slot> (@{{ time_remaining }})</span>
+		<span v-else><slot>Remove</slot></span>
 	</button>
 </template>
 
@@ -23,7 +23,9 @@
         },
         data: function () {
             return {
-                confirmed: false    
+                time_remaining: 4,
+                timer_object: {},
+                confirmed: false
             };
         },
         methods: {
@@ -31,12 +33,25 @@
                 var vm = this;
                 if(vm.confirmed) {
                     vm.$emit('deleted');
+                    vm.time_remaining = 4;
                     vm.confirmed = false;
                 } else {
+                    vm.time_remaining = 4;
                     setTimeout(function() {
                         vm.confirmed = false;
+                        clearTimeout(vm.timer_object);
                     }, 3000);
+                    vm.setLabel();
                     vm.confirmed = true;
+                }
+            },
+            setLabel: function() {
+                var vm = this;
+                if (vm.time_remaining > 0) {
+                    vm.time_remaining--;
+                    vm.timer_object = setTimeout(function() {
+                        vm.setLabel();
+                    }, 1000);
                 }
             }
         }
